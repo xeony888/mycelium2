@@ -3,8 +3,8 @@ use anchor_spl::{associated_token::AssociatedToken, token::{Mint, Token, TokenAc
 
 declare_id!("CMLBhrxJKPXr8GEJznTvgj9yiEskNH1anA2UUpQ5kV4G");
 
-const MINE_SECONDS: u64 = 259200;
-const CLAIM_SECONDS: u64 = 86400;
+const MINE_SECONDS: u64 = 10;
+const CLAIM_SECONDS: u64 = 10;
 const TOTAL_EMISSIONS: u64 = 1000;
 #[program]
 pub mod mycelium2 {
@@ -161,6 +161,7 @@ pub struct Claim<'info> {
     )]
     pub global_account: Account<'info, GlobalAccount>,
     #[account(
+        mut,
         seeds = [b"mint"],
         bump,
     )]
